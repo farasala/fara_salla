@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-dark text-white font-sans antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Секции компенсируют фиксированную шапку при якорном переходе. */
+  section[id],
+  header[id] {
+    scroll-margin-top: 74px;
+  }
+
+  #contact {
+    scroll-margin-top: 80px;
+  }
+}
+
+@layer utilities {
+  /* Горизонтальный внутренний отступ секций из спецификации. */
+  .px-shell {
+    padding-left: clamp(20px, 5vw, 56px);
+    padding-right: clamp(20px, 5vw, 56px);
+  }
+
+  /* Края коллажа растворяются сверху и снизу. */
+  .collage-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Бесконечные ленты и пульсация выключаются целиком. */
+  .animate-scrollUp,
+  .animate-scrollDown,
+  .animate-marquee,
+  .animate-pulseDot {
+    animation: none !important;
+  }
+}
