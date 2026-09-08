@@ -64,7 +64,7 @@ export function WorkGrid({ onOpen }: { onOpen: (slug: string) => void }) {
         </div>
 
         {/* Masonry на CSS-колонках: карточки сохраняют натуральную пропорцию. */}
-        <div className="[column-gap:16px] [column-count:1] min-[441px]:[column-count:2] min-[641px]:[column-count:3] min-[981px]:[column-count:4] min-[1281px]:[column-count:5]">
+        <div className="[column-gap:16px] [column-count:2] min-[641px]:[column-count:3] min-[981px]:[column-count:4] min-[1281px]:[column-count:5]">
           <AnimatePresence initial={false}>
             {items.map((w) => (
               <motion.button
